@@ -1,15 +1,22 @@
+# Importing Libraries
 import streamlit as st
 import plotly.express as px
 import pandas as pd
 import math
 
-
-def _generate_table_of_values(rov, eqn_type: str, *args):
+def _generate_table_of_values(rov, eqn_type: str, *args) -> pd.Dataframe:
+    """
+        This function takes in a range of values, equation type and positional arguements as its parameters 
+        and returns a Pandas Dataframe object.
+    """
     match eqn_type.lower():
+        # Match statement to carry out various operations based on the value of the **eqn_type** parameter
         case "quad":
             coeff1, coeff2, constant = args[0], args[1], args[2]
+            # table_of_values["y"] uses list comprehension to create a list where each of the values in the range are plugged into the function
             table_of_values = dict(y=[(coeff1*(i**2) + coeff2*i + constant)
                                       for i in range(*rov)], x=[i for i in range(*rov)])
+        
         case "lin":
             coeff1, constant = args[0], args[1]
             table_of_values = dict(y=[(coeff1*i + constant)
@@ -26,6 +33,7 @@ def _generate_table_of_values(rov, eqn_type: str, *args):
         case "trig":
             coeffs = args[0]
             theta = [i for i in range(*rov, 15)]
+            # Creating functions that will resolve each of the trigonometric functions e.g the sin function resolves the sine part of the input, etc.
             def sin(x): return coeffs[0]*(math.sin(x))
             def cos(x): return coeffs[1]*(math.cos(x))
             def tan(x): return coeffs[2]*(math.tan(x))
@@ -150,6 +158,8 @@ def main():
             title = "Graph of the Simultaneous Linear Functions"
 
     # color = st.color_picker("Choose the line color for your graph")
+    
+    # Handling when the 'Generate Graph' button is clicked
     if st.button("Generate Graph", type="primary"):
         st.table(data)
         if eqn != "Simultaneous":
