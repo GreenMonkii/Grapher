@@ -1,2 +1,4 @@
 [theme]
 primaryColor="#16A085"
+["client"]
+toolbarMode="minimal"
