@@ -4,7 +4,7 @@ import plotly.express as px
 import pandas as pd
 import math
 
-def _generate_table_of_values(rov, eqn_type: str, *args) -> pd.Dataframe:
+def _generate_table_of_values(rov, eqn_type: str, *args) -> pd.DataFrame:
     """
         This function takes in a range of values, equation type and positional arguements as its parameters 
         and returns a Pandas Dataframe object.
@@ -53,6 +53,7 @@ def _generate_table_of_values(rov, eqn_type: str, *args) -> pd.Dataframe:
 
 
 def main():
+    st.set_page_config("GraphER", "📏")
     st.image(r'.\cover.png',
              caption='GraphER by TL. Python Graphing Application Implemented Using Streamlit, Pandas🐼 and Plotly📉')
     eqn = st.selectbox("Select the Kind of Equation", [
@@ -105,7 +106,7 @@ def main():
 
         case "Trigonometric":
             st.info("""Input the co-efficient for the trigonometric functions in the input box below them!
-                    For example, for $2sinx$ , we would have $2$ in the box below $sinθ$.
+                    For example, for $2sinθ$ , we would have $2$ in the box below $sinθ$.
                     Leave out anyone not included in your trigonometric function!
                     """, icon="ℹ️")
             col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
