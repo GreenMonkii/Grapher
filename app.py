@@ -63,9 +63,9 @@ def main():
         case "Linear":
             col1, col2 = st.columns(2)
             with col1:
-                coeff1 = st.number_input("$x$")
+                coeff1 = st.number_input("$x$", key="key-SWbLr")
             with col2:
-                constant = st.number_input("$constant$")
+                constant = st.number_input("$constant$", key="key-eXocy")
             rov = st.slider("Choose Your Range of Values", -10, 10, (0, 5))
             data = _generate_table_of_values(rov, "lin", coeff1, constant)
             # title = f"Graph of {coeff1 if coeff1 != 1 else ''}x {f'+ {constant}' if constant >= 0 else constant}"
@@ -74,11 +74,11 @@ def main():
         case "Quadratic":
             col1, col2, col3 = st.columns(3)
             with col1:
-                coeff1 = st.number_input("$x^2$")
+                coeff1 = st.number_input("$x^2$", key="key-qXVli")
             with col2:
-                coeff2 = st.number_input("$x$")
+                coeff2 = st.number_input("$x$", key="key-vJqYV")
             with col3:
-                constant = st.number_input("$constant$")
+                constant = st.number_input("$constant$", key="key-rNjTK")
             rov = st.slider("Choose Your Range of Values", -10, 10, (0, 5))
             data = _generate_table_of_values(
                 rov, "quad", coeff1, coeff2, constant)
@@ -96,7 +96,7 @@ def main():
                         coeff = st.number_input(f"$x^{(terms-index)}$")
                         coeffs.append(coeff)
                     else:
-                        constant = st.number_input("$constant$")
+                        constant = st.number_input("$constant$", key="key-$AtHQ")
                         coeffs.append(constant)
             else:
                 rov = st.slider("Choose Your Range of Values", -10, 10, (0, 5))
@@ -123,7 +123,7 @@ def main():
             with col6:
                 cot = st.number_input("$cotθ$")
             with col7:
-                constant = st.number_input("$constant$")
+                constant = st.number_input("$constant$", key="key-CRugi")
 
             coeffs = (sin, cos, tan, cosec, sec, cot, constant)
             start_range, end_range = st.slider("Choose Your Range of Values", -
@@ -138,16 +138,16 @@ def main():
             st.write("$For Equation 1$")
             col1, col2 = st.columns(2)
             with col1:
-                coeff1 = st.number_input("$x$", key=1)
+                coeff1 = st.number_input("$x$", key="key-DdgQX")
             with col2:
-                constant = st.number_input("$constant$", key=2)
+                constant = st.number_input("$constant$", key="key-pJYQF")
 
             st.write("$For Equation 2$")
             col3, col4 = st.columns(2)
             with col3:
-                coeff2 = st.number_input("$x$", key=3)
+                coeff2 = st.number_input("$x$", key="key-XjRJI")
             with col4:
-                _constant = st.number_input("$constant$", key=4)
+                _constant = st.number_input("$constant$", key="key-udCGK")
             # rov = st.slider("Choose Your Range of Values", -10, 10, (0, 5))
             rov = st.slider("Choose Your Range of Values", -10, 10, (0, 5))
             df1 = _generate_table_of_values(rov, "lin", coeff1, constant)
