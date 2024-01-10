@@ -53,8 +53,8 @@ def _generate_table_of_values(rov, eqn_type: str, *args) -> pd.DataFrame:
 
 
 def main():
-    st.set_page_config("GraphER", r"res\favicon.png")
-    st.image(r'res\cover.png',
+    st.set_page_config("GraphER", r'res/favicon.png')
+    st.image(r'res/cover.png',
              caption='GraphER by TL. Python Graphing Application Implemented Using Streamlit, Pandas🐼 and Plotly📉')
     eqn = st.selectbox("Select the Kind of Equation", [
                        "Linear", "Quadratic", "Polynomial", "Trigonometric", "Simultaneous"])
